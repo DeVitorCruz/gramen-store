@@ -1,0 +1,49 @@
+<app-banner-carousel 
+    [BANNERS]="BANNER_SLIDES"></app-banner-carousel>
+
+<app-icon-row
+    [COLUMN_DEFINITION]="'lg:flex sm:grid sm:grid-cols-2 justify-between'"
+    [INPUT_COMPONENT]="iconInfoComponent"></app-icon-row>
+
+<app-offer-box [INFO_BOX_ITEMS]="OFFER_BOX_ITEMS"></app-offer-box>
+
+<app-horizontal-carousel
+    [INFO_SEC_ITEM]="PRODUCT_FEATURES"></app-horizontal-carousel>
+
+<app-calling-action
+    [CALLING_ACTION_INFO]="CALLING_ACT_INFO"
+    [RATING_ELEMENT]="RATING_ITEMS"></app-calling-action>
+
+<app-card-grid
+    [CARD_GRID_RULES]="PRODUCT_GRID_RULES"
+    [GRID_CARD_ELEMENTS]="PRODUCT_FEATURES.cardElements"></app-card-grid>
+
+<app-offer-sec
+    [EXTRA_CLASSES]="'offer-sec-block'"
+    [OFFER_ITEM_INPUTS]="{ FULL_TIME_COUNT_DOWN: COUNT_DOWN_FEAT.fullTime }"
+    [ITEM_COMPONENT]="infoBoxComponent"
+    [SEC_BLOCK_ITEMS]="OFFER_SEC_ITEMS"></app-offer-sec>
+
+<app-client-feedback
+    [FEEDBACK_PAGE]="PAGE_FEED_BACK_INFO"></app-client-feedback>
+
+<app-card-grid-apart
+    [GRID_APART_PAGE]="PRODUCT_BEST_PAGE"></app-card-grid-apart>
+
+<app-sec-box-collect
+    [SEC_BOX_INFO]="RECENT_BLOG"
+    [ITEM_COMPONENT]="cardAdjustable"
+    ></app-sec-box-collect>
+
+<app-offer-sec 
+    [EXTRA_CLASSES]="'exclusive-offer-sec'"
+    [COLUMN_DEFINITION]="'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'"
+    [ITEM_COMPONENT]="infoBoxComponent" 
+    [SEC_BLOCK_ITEMS]="EXCLUSIVE_OFFERS"></app-offer-sec>
+
+<app-icon-row 
+    [COLUMN_DEFINITION]="'grid grid-cols-1 sm:grid md:grid-cols-5 sm:grid-cols-3 justify-center'"
+    [INPUT_COMPONENT]="thumbItemComponent"
+    [ICONS_ITEMS]="BRAND_LIST"></app-icon-row>
+
+    
