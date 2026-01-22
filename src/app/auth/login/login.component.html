@@ -1,0 +1,22 @@
+<section class="auth-login py-[45.1px]">
+    <div class="container mx-[auto] px-[15px]">
+        <div class="flex flex-wrap">
+            <div class="auth-login__form flex-[0_0_auto] w-full lg:w-1/2 px-[12px]">
+                <app-flex-form
+                    [CONFIG]="LOGIN_CONFIG"
+                    (submitted)="onSubmit($event)"
+                    ></app-flex-form>
+            </div>
+            <div class="auth-login__text-box flex-[0_0_auto] w-full lg:w-1/2 px-[12px]">
+                <div class="w-full mx-auto mt-[30px] lg:mt-[0px]">
+                    <h2 class="text-xl text-[24px] font-bold mb-2">
+                        {{ LOGIN_REGISTER_SEC.upTitle }}
+                    </h2>
+                    <app-info-box
+                        [DATA]="LOGIN_REGISTER_SEC"
+                        [MODE]="'length'"></app-info-box>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
