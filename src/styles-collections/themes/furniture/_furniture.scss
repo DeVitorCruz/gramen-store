@@ -1,0 +1,93 @@
+@use '@angular/material' as mat;
+@use '../../menu-bars/navigate-bar/navigate-bar' as navigate-bar;
+@use '../../menu-bars/info-bar/info-bar' as info-bar;
+@use '../../enter-side-nav/enter-side-nav' as enter-side-nav;
+@use '../../list-items/list-items' as list-items;
+@use '../../banner-carousel/banner-carousel' as banner-carousel;
+@use '../../icon-row/icon-row' as icon-row;
+@use '../../footer/footer' as footer;
+@use '../../offer-box/offer-box' as offer-box;
+@use '../../horizontal-carousel/horizontal-carousel' as horizontal-carousel;
+@use '../../calling-action/calling-action' as calling-action;
+@use '../../card-grid/card-grid' as card-grid;
+@use '../../offer-sec/offer-sec' as offer-sec;
+@use '../../info-box/info-box' as info-box;
+@use '../../client-feedback/client-feedback' as client-feedback;
+@use '../../card-grid-apart/card-grid-apart' as card-grid-apart;
+@use '../../sec-box-collect/sec-box-collect' as sec-box-collect;
+@use '../../exclusive-offers/exclusive-offers' as exclusive-offers;
+@use '../../auth/auth' as auth;
+
+$furniture-primary: mat.m2-define-palette((
+    50: #ffeac5,
+    100: #eccba5,
+    200: #d0ab83,
+    300: #b18c5e,
+    400: #9a7342,
+    500: #835c25,
+    600: #78521f,
+    700: #694517,
+    800: #5d3710,
+    900: #4e2904,
+    A100: #a36c28,
+    A200: #ac8353,
+    A400: #9e7954,
+    A700: #896549,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #ffffff,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #ffffff,
+        A400: #ffffff,
+        A700: #ffffff,
+    ), 
+), 300);
+
+$furniture-accent: mat.m2-define-palette(mat.$m2-grey-palette);
+$furniture-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+$furniture-light-theme: mat.m2-define-light-theme((
+    color: (
+        primary: $furniture-primary,
+        accent: $furniture-accent,
+        warn: $furniture-warn,
+    ),
+    typography: mat.m2-define-typography-config(),
+    density: 0,
+));
+
+$color-light: white;
+$color-dark: black; 
+$color-main-color: #b18b5e;
+$border-list-side: rgba(85, 85, 85, 0.2);
+$color-transparent: transparent;
+
+@mixin furniture-all-features() {
+    @include mat.all-component-themes($furniture-light-theme);
+    @include info-bar.info-bar-all-features($color-light, $color-main-color);
+    @include navigate-bar.navigate-all-features($color-dark, $color-main-color, $color-light);
+    @include enter-side-nav.enter-side-nav-all-features();
+    @include list-items.list-items-all-features($color-light, $color-main-color, $border-list-side);
+    @include banner-carousel.banner-all-features($color-main-color, $color-transparent, $color-light);
+    @include icon-row.icon-row-all-features();
+    @include offer-box.offer-box-all-features();
+    @include footer.footer-all-features();
+    @include horizontal-carousel.horizontal-carousel-all-features();
+    @include calling-action.calling-action-all-features();
+    @include card-grid.card-grid-all-features();
+    @include offer-sec.offer-sec-all-features();
+    @include client-feedback.client-feedback-all-features();
+    @include card-grid-apart.card-grid-apart-all-features();
+    @include sec-box-collect.sec-box-collect-all-features();
+    @include exclusive-offers.exclusive-offer-all-features();
+    @include auth.auth-all-features();
+}
+

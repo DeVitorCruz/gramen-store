@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@use './furniture/furniture' as furniture;
+@use './grocery/grocery' as grocery;
+@use './pharmacy/pharmacy' as pharmacy;
+
+@mixin all-themes($theme) {
+
+    @if $theme == furniture {
+        @include furniture.furniture-all-features();
+    } @else if $theme == pharmacy {
+        .pharmacy-theme {
+            @include mat.all-component-themes(pharmacy.$pharmacy-light-theme);
+        }
+    } @else if $theme == grocery {
+        .grocery-theme {
+            @include mat.all-component-themes(grocery.$grocery-light-theme);
+        }
+    }
+}
