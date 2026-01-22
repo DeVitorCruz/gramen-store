@@ -1,0 +1,35 @@
+<section class="card-apart-page py-[80px] lg:py-[100px] xl:py-[120px]">
+    <div class="container mx-[auto] px-[15px]">
+        <div class="header mb-[40px] px-[15px]">
+            <span class="header__up-title">
+                {{ GRID_APART_PAGE().upTitle }}
+            </span>
+            <h2 class="header__title">
+                {{ GRID_APART_PAGE().Title }}
+            </h2>
+        </div>
+        <div class="content-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-center">
+            <ng-container *ngFor="let card_item of GRID_APART_PAGE().cardItems">
+                <div class="px-[15px] mt-[15px]">
+                    <div class="flex gap-[30px] items-center">
+                        <div class="card-img">
+                            <img class="w-full max-w-full h-auto object-cover" [src]="card_item.imgUr" [alt]="card_item.alt">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="card-content__title">
+                                <a href="#" class="capitalize">{{ card_item.title }}</a>
+                            </h5>
+                            <span class="card-content__price py-[5px] px-[0]">{{ card_item.price }}</span>
+                            <div class="rate-content">
+                                <ng-container *ngFor="let icon of card_item.rate">
+                                    <mat-icon class="rate-icon" aria-hidden="false" aria-label="Star icon"
+                                        [fontIcon]="icon? 'star' : 'star_border'"></mat-icon>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

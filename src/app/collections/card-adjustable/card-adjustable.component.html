@@ -1,0 +1,32 @@
+<div class="card-adjustable p-[30px] flex gap-[30px]">
+    <div class="card-adjustable__header">
+        <div class="up-title">
+            <a href="#">{{ DATA().upTitle }}</a>
+        </div>
+        <div class="up-description">
+            <ng-container *ngFor="let description of  DATA().description">
+                <span>{{ description }}</span>
+            </ng-container>
+        </div>
+        <h4 class="card-title">
+            <a href="#">{{ DATA().title }}</a>
+        </h4>
+        <ng-container *ngIf="DATA().defaultBtn; else btnCustomContent">
+            <button mat-fab class="default-btn">
+                <mat-icon aria-hidden="false" aria-label="Chevron right icon" fontIcon="chevron_right"></mat-icon>
+            </button>
+        </ng-container>
+        <ng-template #btnCustomContent>
+            <ng-container *ngFor="let custom of DATA().customBtn">
+                <button mat-fab>
+                    <mat-icon aria-hidden="false" [attr.aria-label]="custom.label" [attr.fontIcon]="custom.fontIcon"></mat-icon>
+                </button>
+            </ng-container>
+        </ng-template>
+    </div>
+    <div class="card-adjustable__main">
+        <a href="#">
+            <img class="max-w-full w-full h-full object-cover align-middle" [src]="DATA().imgUr" [alt]="DATA().alt">
+        </a>
+    </div>
+</div>

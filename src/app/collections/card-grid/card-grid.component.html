@@ -1,0 +1,35 @@
+<section class="grid-block-sec lg:py-[100px] xl:py-[120px] py-[80px]">
+    <div class="container px-[15px] mx-[auto]">
+        <div class="grid-block-sec__header lg:flex lg:justify-between mb-[30px]">
+            <div class="title-sec mb-[40px] px-[15px]">
+                <span>{{ CARD_GRID_RULES().upTitle }}</span>
+                <h2>{{ CARD_GRID_RULES().title }}</h2>
+            </div>
+            <div class="rule-sec flex flex-col justify-center">
+                <div class="nav-content">
+                    <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+                        <ng-container *ngFor="let rule of CARD_GRID_RULES().rules">
+                            <a mat-tab-link
+                                (click)="activeLink = rule"
+                                [active]="activeLink == rule"
+                                >{{ rule }}</a>
+                        </ng-container>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="grid-block-sec__content">
+            <mat-tab-nav-panel #tabPanel>
+                <div class="tab-panel">
+                    <div class="tab-panel__row grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        <ng-container *ngFor="let grid_card_element of GRID_CARD_ELEMENTS()">
+                            <div class="card-content px-[15px] mt-[15px]">
+                                <app-card [CARD_ELEMENT]="grid_card_element"></app-card>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </mat-tab-nav-panel>
+        </div>
+    </div>
+</section>

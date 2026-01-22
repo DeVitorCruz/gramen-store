@@ -1,0 +1,52 @@
+<section class="client-feed-sec xl:py-[120px] lg:py-[100px] py-[80px]" [style]="`background-image: url('${FEEDBACK_PAGE().imgBg}')`">
+    <div class="container mx-[auto] px-[15px]">
+        <div class="client-feed-sec__title text-center mb-[40px]">
+            <span class="up-title">{{ FEEDBACK_PAGE().upTitle }}</span>
+            <h2 class="title">{{ FEEDBACK_PAGE().title }}</h2>
+        </div>
+        <div class="swiper client-feedback-swiper-container">
+            <div class="swiper-wrapper">
+                <ng-container *ngFor="let client of FEEDBACK_PAGE().clientList">
+                    <div class="swiper-slide">
+                        <div class="client-box-content p-[40px]">
+                            <div class="title-head flex justify-between mb-[20px]">
+                                <div class="ft-info">
+                                    <div class="rate-content">
+                                        <ul class="flex">
+                                            <ng-container *ngFor="let rate of client.upRate">
+                                                <li>
+                                                    <mat-icon class="rate-icon" aria-hidden="false" aria-label="Star icon"
+                                                        [fontIcon]="rate? 'star' : 'star_border'"></mat-icon>
+                                                </li>
+                                            </ng-container>
+                                        </ul>
+                                    </div>
+                                    <h5 class="mt-[5px] mb-[2px] text-[20px] leading-[1.3] font-semibold">{{ client.subTitle }}</h5>
+                                    <span class="sub-title">{{ client.title }}</span>
+                                </div>
+                                <div class="quote-icon-content">
+                                    <fa-icon [icon]="['fas', 'quote-right']" size="4x"></fa-icon>
+                                </div>
+                            </div>
+                            <p class="comment-text text-[16px] font-normal leading-[26px] m-[0px]">{{ client.text }}</p>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="btn-content flex justify-center mt-[60px]">
+            <div class="flex main-layer gap-[15px]">
+                <div class="btn-client-feet-next">
+                    <button class="client-btn" mat-mini-fab>
+                        <mat-icon aria-hidden="false" aria-label="Arrow back icon" fontIcon="arrow_back"></mat-icon>
+                    </button>
+                </div>
+                <div class="btn-client-feet-prev">
+                    <button class="client-btn" mat-mini-fab>
+                        <mat-icon aria-hidden="false" aria-label="Arrow forward icon" fontIcon="arrow_forward"></mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

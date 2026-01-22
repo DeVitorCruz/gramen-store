@@ -1,0 +1,31 @@
+<div class="w-full max-auto">
+    <h2 class="text-xl text-[24px] font-bold mb-2">
+        {{ CONFIG().title }}
+    </h2>
+    <div class="form-container">
+        <p *ngIf="CONFIG().subtitle" class="form-container__text py-[10px] my-[21px]">
+            {{ CONFIG().subtitle }}
+        </p>
+        <form *ngIf="FORM() as f" [formGroup]="f" (ngSubmit)="onSubmit()" class="form-content flex flex-col gap-4">
+            <ng-container *ngFor="let field of CONFIG().fields">
+                <mat-form-field appearance="fill" class="form-item w-full">
+                    <mat-label>
+                        {{ field.label }}
+                    </mat-label>
+                    <input
+                        matInput
+                        [type]="field.type"
+                        [formControlName]="field.name"
+                        [placeholder]="field.placeholder"
+                    />
+                </mat-form-field>
+            </ng-container>
+            <div class="form-field-btn">
+                <button *ngIf="FORM()" class="form-btn">
+                    {{ CONFIG().submitLabel }}
+                </button>
+            </div>
+        </form>   
+        <p *ngIf="ERROR_MESSAGE()" class="text-red-500 mt-2">{{ ERROR_MESSAGE() }}</p>
+    </div>
+</div>

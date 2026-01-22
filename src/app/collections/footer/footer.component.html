@@ -1,0 +1,64 @@
+<footer class="f-main-block">
+    <div class="pt-[100px] pb-[20px]">
+        <div class="container mr-auto ml-auto pl-[3rem] pr-[3rem]">
+            <div class="mx-auto w-full">
+                <div class="lg:flex lg:justify-between grid grid-cols-[auto_auto] lg:gap-[50px] gap-[50px_0px]">
+                    <div class="f-logo-content mb-6 lg:mb-0 lg:w-[30%] col-start-[1] col-end-[3]">
+                        <a href="#" class="flex items-center mb-[35px]">
+                            <img src="assets/logo/side-nav-logo/logo-light.svg" alt="Addina logo" class="h-8 me-3">
+                        </a>
+                        <p class="f-logo-content__text mb-[30px] text-[16px] leading-[26px]">
+                            It helps designers plan out where the content will sit,
+                            the content to be written and approved.
+                        </p>
+                        <div class="f-social-media mt-4 sm:mt-0">
+                            <app-social-media-section></app-social-media-section>
+                        </div>
+                    </div>
+                    <app-split-list [LISTE_ITEMS]="FOOTER_LIST_ITEMS"></app-split-list>
+                    <div class="f-contact-content mb-[35px]">
+                        <h4 class="text-[20px] mb-6 text-sm font-semibold text-white capitalize">Contact</h4>
+                        <p class="f-contact-content__text mb-[30px] text-[16px] leading-[26px]">
+                            4517 Washington Ave.
+                            Manchester, Kentucky 39495
+                        </p>
+                        <div class="f-contact-content__location flex items-center mt-4 sm:mt-0 pt-[15px] pb-[15px] mb-[10px]">
+                            <div class="icon-container flex items-center justify-center w-10 h-10 rounded-full bg-transparent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 mr-[20px]">
+                                <fa-icon [icon]="['fas', 'location-dot']" size="1x"></fa-icon>
+                            </div>
+                            <div>
+                                <a href="#">711-2880 Nulla St.</a>
+                            </div>
+                        </div>
+                        <div class="f-contact-content__phone flex items-center sm:mt-0 mb-[10px]">
+                            <div class="icon-container flex items-center justify-center w-10 h-10 rounded-full bg-transparent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 mr-[20px]">
+                                <fa-icon [icon]="['fas', 'phone']" size="1x"></fa-icon>
+                            </div>
+                            <div>
+                                <a href="#">+964 742 44 763</a>
+                                <p class="f-text">Mon - Sat: 9 AM - 5 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mr-auto ml-auto pl-[3rem] pr-[3rem]">
+        <div class="f-copyright-block flex lg:justify-between items-center lg:flex-row flex-col pt-[35px] pb-[35px]">
+            <div class="f-copyright-block__text">&copy; All Copyright 2024 by</div>
+            <div class="f-copyright-block__payment-method grid grid-cols-[auto_auto_auto] gap-[10px] items-center">
+                <div class="payment-item">
+                    <img src="assets/footer/master-card.png" alt="">
+                </div>
+                <div class="payment-item">
+                    <img src="assets/footer/payoneer.png" alt="">
+                </div>
+                <div class="payment-item">
+                    <img src="assets/footer/paypal.png" alt="">
+                </div>
+            </div>
+            <div class="f-copyright-block__text">Terms & Condition | Privacy Policy</div>
+        </div>
+    </div>
+</footer>

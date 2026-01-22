@@ -1,0 +1,31 @@
+<mat-card class="card-block">
+    <div class="img-content flex justify-center flex-col" style="background-color: #f5f1e6;">
+        <a href="#" class="flex justify-center">
+            <img class="img-content__item" mat-card-image [src]="`${CARD_ELEMENT().imgUr}`" [alt]="`${CARD_ELEMENT().alt}`">
+        </a>
+        <div class="card-action-item flex flex-row justify-center gap-[10px]">
+            <button class="card-action-item__icon" mat-mini-fab>
+                <mat-icon aria-hidden="false" aria-label="add shopping cart icon" fontIcon="add_shopping_cart"></mat-icon>
+            </button>
+            <button class="card-action-item__icon" mat-mini-fab>
+                <mat-icon aria-hidden="false" aria-label="visibility icon" fontIcon="visibility"></mat-icon>
+            </button>
+            <button class="card-action-item__icon" mat-mini-fab>
+                <mat-icon aria-hidden="false" aria-label="favorite border icon" fontIcon="favorite_border"></mat-icon>
+            </button>
+        </div>
+    </div>
+    <mat-card-content class="card-block__card-content">
+        <h4 class="title">
+            <a href="#" class="mb-[5px] text-[20px] font-semibold inline-block">{{ CARD_ELEMENT().title }}</a>
+        </h4>
+        <div class="rate-content">
+            <ng-container *ngFor="let start of CARD_ELEMENT().rate">
+                <mat-icon class="rate-content__icon" aria-hidden="false" aria-label="Star icon" [fontIcon]="start? 'star' : 'star_border' "></mat-icon>
+            </ng-container>
+        </div>
+        <div class="card-price">
+            <span class="card-price__text capitalize text-[16px] font-medium">{{ CARD_ELEMENT().price }}</span>
+        </div>
+    </mat-card-content>
+</mat-card>
