@@ -1,0 +1,15 @@
+<ng-container style="display: contents;" *ngFor="let item of LISTE_ITEMS()">
+    <div class="splited-menu-content lg:w-[20%]">
+        <h4 class="text-[20px] mb-6 text-sm font-semibold text-white capitalize">{{ item.title }}</h4>
+        <ul class="text-gray-500 font-medium" *ngFor="let listItem of item.subItems">
+            <li class="mb-4">
+                <a href="#" class="splited-text flex">
+                    <div class="icon-hidden">
+                        <mat-icon aria-hidden="false" arial-label="Arrow-right" fontIcon="keyboard_arrow_right"></mat-icon>
+                    </div>
+                    <div class="item-text">{{ listItem.title }}</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</ng-container>
