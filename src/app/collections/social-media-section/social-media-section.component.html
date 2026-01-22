@@ -1,0 +1,12 @@
+<ul class="flex justify-left" [ngClass]="MAIN_STYLE()">
+    <li class="list-item mr-[10px]"  *ngFor="let socialItem of SOCIAL_ITEMS">
+        <a 
+            [href]="socialItem.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-sec-link flex items-center justify-center w-10 h-10 rounded-full bg-transparent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+            [attr.aria-label]="`Visit our ${socialItem.name} page`">
+            <fa-icon [icon]="socialItem.icon" size="1x"></fa-icon>
+        </a>
+    </li>
+</ul>
