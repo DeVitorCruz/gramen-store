@@ -1,0 +1,1 @@
+export const THEMES: string[] = ['furniture-theme', 'pharmacy-theme', 'grocery-theme'];
