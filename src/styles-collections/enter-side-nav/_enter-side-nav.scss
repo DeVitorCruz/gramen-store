@@ -1,0 +1,84 @@
+@use '@angular/material' as mat;
+@use '../mixin-2' as mixin2;
+
+@mixin enter-side-nav-all-features($main-typo-color: white, $side-bg-color: #191919, $theme-main-color: #b18b5e, $side-nav-thin-border: rgba(85, 85, 85, 0.2)) {
+    .enter-side-nav {
+        border-left: solid 2px $theme-main-color;
+        color: $main-typo-color;
+
+        .drawer-content {
+            &__top-wrapper {
+                border-bottom: solid 1px $side-nav-thin-border;
+
+                .title {
+                    align-content: center;
+                }
+            }
+
+            &__search-area {
+                .form-label-content {
+                    @include mixin2.form-field-styled();
+                            
+                    input {
+                        color: $main-typo-color;
+                    }
+                }
+
+                margin-bottom: 25px;
+            }
+
+            &__contact-info {
+                .contact-list {
+                    &__item {
+                        .title, .icon {
+                            transition: color .2s ease-in-out;
+                            cursor: pointer;
+                        }
+
+                        .icon {
+                            --mdc-list-list-item-leading-icon-color: #fff;
+                            --mdc-list-list-item-hover-leading-icon-color: #b18b5e;
+                        }
+
+                        @include mat.list-overrides((
+                            list-item-label-text-color: $main-typo-color,
+                            list-item-hover-label-text-color: $theme-main-color,
+                        ));
+                    }
+                }
+            }
+
+            &__social-media {
+                .social-sec-list-side-nav {
+                    .list-item {
+                        display: block;
+                    
+                        .social-sec-link {
+                            @include mixin2.social-circel-styled($color: $theme-main-color, $border: solid 1px #2f2f2f, $transition: all .3s ease-out, $background-color: transparent);
+                        
+                            &:hover {
+                                color: $main-typo-color;
+                                background-color: $theme-main-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .close-content {
+            &__mini-btn {
+                color: $main-typo-color;
+
+                @include mat.fab-overrides((
+                    small-container-color: $theme-main-color,
+                ));
+            }
+        }
+
+        @include mat.sidenav-overrides((
+            container-background-color: $side-bg-color,
+            container-width: auto,
+        ));
+    }
+}

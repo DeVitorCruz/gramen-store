@@ -1,0 +1,22 @@
+@mixin icon-row-all-features($main-theme-color: #b18b5e, $text-color: #555555) {
+    .icon-row-block {
+        padding: 100px 0;
+
+        .icons-container {
+            &__item {
+                margin-top: 15px;
+                padding: 0 15px;
+                
+                .icon-content {
+                    color: $main-theme-color;
+                }
+    
+                .text-content {
+                    p {
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+}

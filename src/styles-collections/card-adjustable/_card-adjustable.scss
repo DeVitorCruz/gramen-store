@@ -1,0 +1,59 @@
+@use '../mixin-1' as mixin1;
+@use '@angular/material' as mat;
+
+@mixin card-adjustable-all-features() {
+    .card-adjustable {
+        background-color: #fff;
+
+        &__header {
+            .card-title, .default-btn {
+                transition: all .3s ease-in-out;
+            }
+
+            .up-title {
+                margin-bottom: 15px;
+
+                a {
+                    line-height: 1;
+                    text-align: left;
+                    border-radius: 1000px;
+                    @include mixin1.calling-box($font-weight: normal, $text-transform: capitalize, $padding: 8px 10px, $margin-bottom: 0px,);
+                }
+            }
+
+            .up-description {
+                span {
+                    color: #808080;
+                    margin-right: 15px;
+                    transition: all .3s ease-in-out;
+                    @include mixin1.g-title-static($font-size: 14px, $font-weight: 500, $line-height: 26px, $margin-bottom: 0,);
+                }
+            }
+
+            .card-title {
+                text-transform: capitalize;
+                @include mixin1.g-title-static($font-size: 24px, $font-weight: 600, $line-height: 1.3, $margin-bottom: 25px,);
+            }
+
+            .default-btn {
+                @include mat.fab-overrides((
+                    container-color: rgba(177, 139, 94, 0.2),
+                ));
+
+                @include mat.icon-overrides((
+                    color: #b18b5e,
+                ));
+                
+                &:hover {
+                    @include mat.fab-overrides((
+                        container-color: #b18b5e,
+                    ));
+                
+                    @include mat.icon-overrides((
+                        color: #fff,
+                    ));
+                }
+            }
+        }
+    }
+}

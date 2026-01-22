@@ -1,0 +1,60 @@
+@use '../mixin-1' as mixin1;
+@use '../breakpoints' as breakpoints;
+
+@mixin card-grid-apart-all-features($main-theme-color: #b18b5e) {
+    .card-apart-page {
+        .header {
+            &__up-title {
+                @include mixin1.calling-box($padding: 2px 15px, $margin-bottom: 10px,);
+            }
+
+            &__title {
+                transition: all .3s ease-in-out;
+                margin-top: 0px;
+                @include mixin1.g-title-static(
+                    $font-size: 32px,
+                    $line-height: 1.3,
+                    $margin-bottom: 0px,
+                );
+
+                @include breakpoints.respond(2sm) {
+                    font-size: 36px;
+                }
+
+                @include breakpoints.respond(sm) {
+                    font-size: 40px;
+                }
+
+                @include breakpoints.respond(3xlg) {
+                    font-size: 52px;
+                }
+            }
+        }
+
+        .content-grid {
+            .card-content {
+                &__title {
+                    @include mixin1.g-title-static($font-size: 20px,
+                        $font-weight: 600,
+                        $line-height: 1.3,
+                        $margin-bottom: 0px,
+                    );
+                }
+
+                &__price {
+                    color: $main-theme-color;
+                    @include mixin1.g-title-static(
+                        $font-size: 16px,
+                        $font-weight: 500,
+                        $line-height: 26px,
+                        $margin-bottom: 0px,
+                    );
+                }
+
+                .rate-content {
+                    color: #ffc107;
+                }
+            }
+        }
+    }
+}

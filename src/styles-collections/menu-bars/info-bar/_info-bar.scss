@@ -1,0 +1,70 @@
+@use '@angular/material' as mat;
+
+@mixin info-bar-all-features($label-color-primer: white, $main-color-theme: #b18b5e, $label-color-hover: white) {
+
+    .info-bar {
+        color: $label-color-primer;
+
+        @include mat.toolbar-overrides((
+            container-background-color: $main-color-theme,
+        ));
+        
+        &__btn-content {
+            .info-bar-btn-item {
+                transition: color .2s ease-in-out;
+
+                @include mat.toolbar-overrides((
+                    container-text-color: $label-color-primer,
+                ));
+
+                &:hover {
+                    @include mat.toolbar-overrides((
+                        container-text-color: $label-color-hover,
+                    ));
+                }
+
+                @include mat.button-overrides((
+                    text-state-layer-color: none,
+                    text-ripple-color: none,
+                ));
+            }
+        }
+
+        &__menu {
+            .info-bar-item {
+                transition: color .2s ease-in-out;
+
+                @include mat.button-overrides((
+                    text-state-layer-color: none,
+                    text-ripple-color: none,
+                ));
+
+                @include mat.toolbar-overrides((
+                    container-text-color: $label-color-primer,
+                ));
+
+                &:hover {
+                    @include mat.toolbar-overrides((
+                        container-text-color: $label-color-hover,
+                    ));
+                }
+            }
+        }
+
+        &__menu-content {
+            .info-bar-menu-item {
+                transition: color .2s ease-in-out;
+
+                @include mat.menu-overrides((
+                    item-hover-state-layer-color: none,
+                ));
+
+                &:hover {
+                    @include mat.menu-overrides((
+                        item-label-text-color: $main-color-theme,
+                    ));
+                }
+            }
+        }
+    }
+}

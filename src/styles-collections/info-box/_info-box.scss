@@ -1,0 +1,43 @@
+@use '../countdown/countdown' as countdown;
+@use '../mixin-1' as mixin1;
+@use '../mixin-2' as mixin2;
+@use '../breakpoints' as breakpoints;
+
+@mixin info-box-all-features($text-white: #fff, $main-color-sec: #b18b5e, $color-text: #fff, $main-info-box-padding: 25px,) {
+    .main-info-box {
+        padding: $main-info-box-padding;
+        
+        .info-box {
+            @include countdown.countdown-all-features($text-white);
+            padding: 30px;
+            border: 1px solid #fff;
+
+            &__calling {
+                color: $color-text;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+
+            &__title {
+                line-height: 60px;
+                @include mixin2.typography-style($color: $text-white, $font-size: 40px, $font-weight: 600, $margin-bottom: 30px);
+            }
+
+            &__btn-content {
+                .btn-banner {
+                    margin-top: 30px;
+                    @include mixin1.g-button-static($font-size: 16px, $font-weight: 600, $color: $color-text, $height: 60px, $padding: 15px 35px, $background-color: transparent, $border: solid 1px $color-text,);
+
+                    &:hover {
+                        background-color: $main-color-sec;
+                        border-color: $main-color-sec;
+                    }
+                }
+            }
+
+            @include breakpoints.respond(lg) {
+                padding: 65px 20px;
+            }
+        }
+    }
+}

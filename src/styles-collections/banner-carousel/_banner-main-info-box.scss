@@ -1,0 +1,62 @@
+@use '../breakpoints' as breakpoints;
+@use '../mixin-1' as mixin1;
+
+@mixin banner-main-info-box-all-features($main-color-sec: #b18b5e, $secondary-color-sec: transparent, $color-text: #fff) {
+    .main-info-box {
+        .info-box {
+            &__calling, &__title {
+                transition: all .3s ease-in-out;
+            }
+
+            &__calling {
+                @include mixin1.calling-box();
+            }
+
+            &__title {
+                @include mixin1.g-title-static();
+
+                @include breakpoints.respond(md) {
+                    font-size: 44px;
+                }
+
+                @include breakpoints.respond(lg) {
+                    font-size: 65px;
+                }
+
+                @include breakpoints.respond(2xlg) {
+                    font-size: 76px;
+                }
+
+                @include breakpoints.respond(3xlg) {
+                    font-size: 80px;
+                }
+            }
+
+            &__text {
+                @include mixin1.g-text-static();
+            }
+
+            &__btn-content {
+                .btn-banner {
+                    @include mixin1.g-button-static();
+
+                    &:hover {
+                        @include mixin1.g-button-static($color: $main-color-sec, $background-color: $secondary-color-sec);
+                    }
+                }
+
+                .btn-banner:last-child {
+                    @include mixin1.g-button-static($color: $main-color-sec, $padding: 0 15px, $background-color: $secondary-color-sec);
+
+                    &:hover {
+                        @include mixin1.g-button-static($color: $color-text, $background-color: $main-color-sec);
+                    }
+
+                    @include breakpoints.respond(2sm) {
+                        padding: 0 30px;
+                    }
+                }
+            }
+        }
+    }
+}

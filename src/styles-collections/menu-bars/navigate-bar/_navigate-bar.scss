@@ -1,0 +1,57 @@
+@use '@angular/material' as mat;
+
+@mixin navigate-all-features($label-color-primer: black, $main-color-theme: #b18b5e, $label-color-secondary: white) {
+
+    .nav-item, .nav-item-raised {
+        transition: color .2s ease-in-out;
+    }
+    
+    .nav-item {
+        @include mat.button-overrides((
+            text-label-text-color: $label-color-primer,
+            text-state-layer-color: $main-color-theme,
+            text-ripple-color: rgba($main-color-theme, .15),
+            text-container-shape: 1rem,
+            text-hover-state-layer-opacity: .04,
+        ));
+
+        &:hover {
+            @include mat.button-overrides((
+                text-label-text-color: $main-color-theme,
+            ));
+        }
+    }
+    
+    .nav-item-raised {
+        @include mat.button-overrides((
+            protected-label-text-color: $label-color-primer,
+            protected-container-shape: 1rem,
+            protected-state-layer-color: $main-color-theme,
+            protected-ripple-color: rgba($main-color-theme, .15),
+            protected-hover-state-layer-opacity: 0.04,
+        ));
+
+        &:hover {
+            @include mat.button-overrides((
+                protected-label-text-color: $main-color-theme,
+            ));
+        }
+    }
+    
+    .nav-menu-content {
+        .nav-menu-item {
+            border-bottom: solid .1rem rgba($label-color-primer, .1);
+
+            @include mat.menu-overrides((
+                item-hover-state-layer-color: $main-color-theme,
+            ));
+
+            &:hover {
+                @include mat.menu-overrides((
+                    item-label-text-color: $label-color-secondary,
+                ));
+            }
+        }
+    }
+}
+

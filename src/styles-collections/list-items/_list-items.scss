@@ -1,0 +1,66 @@
+@use '@angular/material' as mat;
+
+@mixin list-items-all-features($label-color-primary: #fff, $label-color-hover: #b18b5e, $border-side: rgba(85, 85, 85, 0.2)) {
+    
+    .list-container-menu {
+
+        &__list-item, &__sub-menu-container {
+            a {
+                color: $label-color-primary;
+                text-transform: capitalize;
+                transition: all .3s ease-in-out;
+
+                &:hover {
+                    color: $label-color-hover;
+                }
+            }
+        }
+
+        &__list-item {
+            height: auto;
+            align-items: flex-start;
+            border-top: solid 1px $border-side;
+
+            .menu-toggle-btn {
+                transition: transform .3s ease-in-out;
+                color: var(--mat-sys-on-secondary);
+                --mdc-icon-button-state-layer-size: 41px;
+
+                @include mat.icon-button-overrides((
+                    icon-size: 18px,
+                ));
+
+                &.expanded {
+                    transform: rotate(45deg);
+                }
+            }
+
+            &:first-child {
+                border-top: none;
+            }
+        }
+
+        &__sub-menu-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .7s 0s ease-in-out;
+
+            &.isExpanded {
+                max-height: 500px;
+            }
+
+            .list-sub-item {
+                border-top: solid 1px $border-side;
+            
+                a {
+                    display: block;
+                    transition: all .3s ease-in-out;
+                    
+                    &:hover {
+                        color: $label-color-hover;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@use '../../mixin-1' as mixin1;
+@use '../../breakpoints' as breakpoints;
+
+@mixin register-all-features() {
+    .auth-register {
+        &__form {
+            .form-container {
+                padding: 30px;
+                background-color: #f5f1e6;
+                line-height: 1;
+
+                .form-content {
+                    @include breakpoints.respond(xlg) {
+                        display: flex !important;
+                        flex-direction: row !important;
+                        flex-wrap: wrap !important;
+    
+                        .form-item {
+                            flex: 0 0 auto;
+                            width: 49%;
+                        }
+                    }
+                }
+
+                &__text {
+                    color: #555555;
+                }
+
+                .form-field-btn {
+                    margin-top: 20px;
+
+                    .form-btn {
+                        @include mixin1.g-button-static($color: #fff, $background-color: #b18b5e );
+
+                        &:hover {
+                            @include mixin1.g-button-static($color: #b18b53, $background-color: transparent);
+                        }
+                    }
+
+                    @include breakpoints.respond(xlg) {
+                        display: flex;
+                        justify-content: start;
+                        flex: 0 0 auto;
+                        width: 49%;
+                    }
+                }
+            }
+        }
+    }
+}

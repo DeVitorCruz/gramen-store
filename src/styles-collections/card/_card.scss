@@ -1,0 +1,65 @@
+@use '../mixin-2' as mixin2;
+
+@mixin card-all-features() {
+    .card-block {
+        box-shadow: none;
+
+        .img-content {
+            .card-action-item {
+                &__icon {
+                    @include mixin2.icon-rotate-action($color: white, $transition: all .3s ease-in-out, $background-color: #b18b5e, $transform: rotateX(-90deg), $opacity: 0);
+                }
+            }
+
+            &__item {
+                transition: all .3s ease-in-out;
+            }
+        }
+
+        &__card-content {
+            margin-top: 15px;
+            text-align: left;
+
+            .title {
+                a {
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        color: #b18b5e;
+                    }
+                }
+            }
+
+            .rate-content {
+                &__icon {
+                    color: #ffc107;
+                }
+            }
+
+            .card-price {
+                &__text {
+                    color: #b18b5e;
+                }
+            }
+        }
+
+        &:hover {
+            .img-content {
+                &__item {
+                    transform: scale(1.1);
+                }
+
+                .card-action-item {
+                    &__icon {
+                        transform: rotateX(0deg);
+                        opacity: 1;
+                    }
+                }
+
+                &__item {
+                    transition: all .3s ease-in-out;
+                }
+            }
+        }
+    }
+}

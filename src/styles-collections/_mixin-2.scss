@@ -1,0 +1,92 @@
+@mixin cross-img() {
+    .slide-pic {
+        position: relative;
+
+        .img-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cross-img-content {
+            position: absolute;
+            left: 15%;
+            bottom: 21%;
+        }
+    }
+}
+
+@mixin form-field-styled($side-bg-color: #191919, $main-typo-color: #fff) {
+    width: 100%;
+    background-color: $side-bg-color;
+    --mdc-filled-text-field-label-text-color: $main-typo-color;
+    --mdc-filled-text-field-container-color: $side-bg-color;
+    --mdc-filled-text-field-active-indicator-color: rgba(85, 85, 85, 0.2);
+    --mdc-filled-text-field-hover-active-indicator-color: rgba(85, 85, 85, 0.2);
+    --mdc-filled-text-field-hover-label-text-color: $main-typo-color;
+}
+
+@mixin social-circel-styled(
+    $color: rgb(22, 22, 22),
+    $border: solid 1px #2f2f2f,
+    $transition: all .3s ease-out,
+    $background-color: #fff,
+) {
+    color: $color;
+    border: $border;
+    transition: $transition;
+    background-color: $background-color;
+}
+
+@mixin splited-menu-content(
+    $primery-color: #9f9f9f,
+    $secundary-color: #fff,
+    $transition: all .3s ease-in-out) {
+    color: $primery-color;
+    transition: $transition;
+
+    .icon-hidden {
+        opacity: 0;
+        width: 0;
+        transition: $transition;
+    }
+
+    &:hover {
+        color: $secundary-color;
+
+        .icon-hidden {
+            color: $secundary-color;
+            opacity: 1;
+            width: 24px;
+        }
+    }
+}
+
+@mixin icon-rotate-action(
+    $color: white,
+    $transition: all .3s ease-in-out,
+    $background-color: #b18b5e,
+    $transform: rotateX(-90deg),
+    $opacity: 0) {
+    color: $color;
+    transition: $transition;
+    background-color: $background-color;
+    transform: $transform;
+    opacity: $opacity;
+}
+
+@mixin typography-style(
+    $color: #fff,
+    $font-size: 16px,
+    $font-weight: 600,
+    $margin-bottom: 20px) {
+    color: $color;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    margin-bottom: $margin-bottom;
+}
+
+@mixin bg-img-adjustment() {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,61 @@
+@use '../mixin-2' as mixin2;
+
+@mixin footer-all-features($main-color-footer: #fff, $sec-color-footer: #9f9f9f, $main-theme-color: #b18b5e) {
+    .f-main-block {
+        background-color: #191919;
+        color: $main-color-footer;
+
+        .f-logo-content {
+            &__text {
+                color: $sec-color-footer;
+            }
+
+            .f-social-media {
+                .social-sec-link {
+                    @include mixin2.social-circel-styled($color: rgb(22, 22, 22), $border: solid 1px #2f2f2f, $transition: all .3s ease-out, $background-color: $main-color-footer);
+                    
+                    &:hover {
+                        color: $main-color-footer;
+                        background-color: $main-theme-color;
+                    }
+                }
+            }
+        }
+
+        .splited-menu-content {
+            ul {
+                .splited-text {
+                    @include mixin2.splited-menu-content($primery-color: $sec-color-footer, $secundary-color: $main-color-footer, $transition: all .3s ease-in-out);
+                }
+            }
+        }
+
+        .f-contact-content {
+            &__text {
+                color: #555555;
+            }
+
+            &__phone, &__location {
+                a {
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        color: #b18b5e;
+                    }
+                }
+
+                .icon-container {
+                    @include mixin2.social-circel-styled($color: white, $border: solid 1px #2f2f2f, $transition: all .3s ease-out, $background-color: #b18b5e);
+                }   
+
+                .f-text {
+                    color: #555555;
+                }
+            }
+        }
+
+        .f-copyright-block {
+            border-top: solid 1px #2f2f2f;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@use '../mixin-2' as mixin2;
+
+@mixin rating-dot-all-features($sec-main-color: #b18b5e, $main-text-color: #fff) {
+    .rating-dot {
+        display: inline-block;
+        position: absolute;
+
+        &:hover {
+            .box-text {
+                display: block;
+            }
+        }
+
+        &__large {
+            background-color: $main-text-color;
+
+            .item-circle {
+                color: $sec-main-color;
+            }
+        }
+
+        .box-text {
+            transition: all .3s ease-in-out;
+            background-color: $main-text-color;
+            top: -180px;
+            left: -80px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -20px;
+                left: 92px;
+                background-color: $main-text-color;
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                transform: rotate(54deg);
+                width: 60px;
+                height: 70px;
+            }
+
+            .title {
+                @include mixin2.typography-style($color: #161616, $font-size: 20px, $font-weight: 600, $margin-bottom: 0px);
+            }
+
+            .rate-icon {
+                color: #ffc107;
+            }
+
+            .price {
+                color: #b18b5e;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .rating-dot__0 {
+        top: 45%;
+        left: 25%;
+    }
+
+    .rating-dot__1 {
+        top: 68%;
+        left: 52%;
+    }
+
+    .rating-dot__2 {
+        top: 35%;
+        left: 75%;
+    }
+}

@@ -1,0 +1,52 @@
+@use '../mixin-1' as mixin1;
+@use '../mixin-2' as mixin2;
+@use '../breakpoints' as breakpoints;
+@use '../rating-dot/rating-dot' as rating-dot;
+
+@mixin calling-action-all-features($sec-main-color: #b18b5e, $main-text-color: #fff, $main-bg-color: #f5f1e6, $btn-sec-color: #fff, $btn-text-color: black) {
+    .theme-block {
+        &__calling {
+            background-color: $sec-main-color;
+
+            .main-info-box {
+                padding: 20px;
+                border: 1px solid $main-text-color;          
+            
+                .info-box {
+                    &__calling {
+                        @include mixin2.typography-style();
+                        display: inline-block;
+                    }
+        
+                    &__title {
+                        @include mixin2.typography-style($font-size: 40px, $margin-bottom: 0px);
+                        line-height: 60px;
+                    }
+        
+                    &__btn-content {
+                        .btn-banner {
+                            margin-top: 30px;
+                            @include mixin1.g-button-static($font-weight: 600, $color: $btn-text-color, $background-color: $btn-sec-color, $border: solid 1px $btn-sec-color);
+
+                            &:hover {
+                                border: solid 1px $sec-main-color;
+                            }
+                        }
+                    }
+                }
+
+                @include breakpoints.respond(sm) {
+                    padding: 50px;
+                }
+            }
+        }
+
+        .main-sec {
+            background-color: $main-bg-color;   
+        }
+
+        &__detail {
+            @include rating-dot.rating-dot-all-features();
+        }
+    }
+}

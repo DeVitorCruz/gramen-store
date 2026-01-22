@@ -1,0 +1,23 @@
+@mixin countdown-all-features($text-white: #fff) {
+    .countdown-wrapper {
+        &__timer-sec {
+            .timer-item {
+                .number-sec, .text-sec {
+                    color: $text-white;
+                }
+
+                .number-sec {
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 85px;
+                        height: 1px;
+                        background: rgba(230, 247, 252, .2);
+                        bottom: -13px;
+                        left: -10px;
+                    }
+                }
+            }
+        }
+    }
+}

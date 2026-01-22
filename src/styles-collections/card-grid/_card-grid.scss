@@ -1,0 +1,45 @@
+@use '../mixin-1' as mixin1;
+@use '../mixin-2' as mixin2;
+@use '../breakpoints' as breakpoints;
+@use '../card/card' as card;
+
+@mixin card-grid-all-features() {
+    .grid-block-sec {
+        &__header {
+            .title-sec {
+                span {
+                    @include mixin1.calling-box();
+                }
+
+                h2 {
+                    @include mixin2.typography-style($color: #161616, $font-size: 36px, $font-weight: 600, $margin-bottom: 0px );
+                    transition: all .3s ease-in-out;
+                    line-height: 1.3;
+                    margin-top: 0px;
+                
+                    @include breakpoints.respond(sm) {
+                        font-size: 40px;
+                    }
+
+                    @include breakpoints.respond(2xlg) {
+                        font-size: 45px;
+                    }
+
+                    @include breakpoints.respond(3xlg) {
+                        font-size: 52px;
+                    }
+                }
+            }
+        }
+
+        &__content {
+            .tab-panel {
+                &__row {
+                    .card-content {
+                        @include card.card-all-features();
+                    }
+                }
+            }
+        }
+    }
+}

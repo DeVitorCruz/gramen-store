@@ -1,0 +1,41 @@
+@use '../mixin-1' as mixin1;
+@use '../mixin-2' as mixin2;
+@use '../breakpoints' as breakpoints;
+
+@mixin offer-box-all-features($main-color-sec: #b18b5e, $secondary-color-sec: transparent, $color-text: #fff, $title-text: #161616) {
+    .main-offer {
+        .main-info-box {
+            padding: 0;
+    
+            .info-box {
+                &__calling {
+                    color: $main-color-sec;
+                    margin-bottom: 10px;
+                    display: inline-block;
+                }
+    
+                &__title {
+                    @include mixin2.typography-style($color: $title-text, $font-size: 28px, $font-weight: 600, $margin-bottom: 0px);
+                    line-height: 1.3;
+                }
+    
+                &__btn-content {
+                    .btn-banner {
+                        margin-top: 30px;
+                        @include mixin1.g-button-static();
+                
+                        &:hover {
+                            opacity: .8;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__img-content {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+}

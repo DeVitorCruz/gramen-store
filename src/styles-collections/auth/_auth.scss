@@ -1,0 +1,7 @@
+@use './login/login' as login;
+@use './register/register' as register;
+
+@mixin auth-all-features() {
+    @include login.login-all-features();
+    @include register.register-all-features();
+}

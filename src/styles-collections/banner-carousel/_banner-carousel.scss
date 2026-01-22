@@ -1,0 +1,38 @@
+@use '@angular/material' as mat;
+@use '../breakpoints' as breakpoints; 
+@use '../mixin-1' as mixin1;
+@use '../mixin-2' as mixin2;
+@use './banner-main-info-box' as banner-main-info-box;
+
+@mixin banner-all-features($main-color-sec: #b18b5e, $secondary-color-sec: transparent, $color-text: #fff) {
+    .banner {
+        @include mixin1.bg-adjusting-size();
+        padding-bottom: 100px;
+        
+        .banner-content {
+            .banner-swiper-container {
+                .swiper-wrapper {
+                    .swiper-layer-content {
+                        display: flex;
+                        align-items: flex-end;
+                        min-height: 700px;
+
+                        .banner-info-box {
+                            @include banner-main-info-box.banner-main-info-box-all-features($main-color-sec: $main-color-sec, $secondary-color-sec: $secondary-color-sec, $color-text: $color-text);
+                        }
+                    }
+                }
+
+                .swiper-pagination-bullet-active {
+                    background: $main-color-sec;
+                }
+            }
+        }
+    }
+    
+    .banner-swiper-pagination {
+        transform: translateX(50%);
+    }
+    
+    @include mixin2.cross-img();
+}

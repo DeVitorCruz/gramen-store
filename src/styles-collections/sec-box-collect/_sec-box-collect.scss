@@ -1,0 +1,46 @@
+@use '../mixin-1' as mixin1;
+@use '../breakpoints' as breakpoints;
+@use '../card-adjustable/card-adjustable' as card-adjustable;
+
+@mixin sec-box-collect-all-features($background-color-sec: #f5f1e6, $color-text: #b18b5e, $bg-color-upTitle: rgba(177, 139, 94, 0.15)) {
+    .box-collection-block {
+        background-color: $background-color-sec;
+
+        .header-sec {
+            &__up-title, &__title {
+                transition: all .3s ease-in-out;
+            }
+
+            &__up-title {
+                font-size: 14px;
+                @include mixin1.calling-box($color: $color-text, $background-color: $bg-color-upTitle, $padding: 2px 15px, $margin-bottom: 10px, );
+            }
+
+            &__title {
+                @include mixin1.g-title-static($font-size: 32px, $font-weight: 600, $line-height: 1.3, $margin-bottom: 0px,);
+
+                @include breakpoints.respond(2sm) {
+                    font-size: 36px;
+                }
+
+                @include breakpoints.respond(sm) {
+                    font-size: 40px;
+                }
+
+                @include breakpoints.respond(2xlg) {
+                    font-size: 45px;
+                }
+
+                @include breakpoints.respond(3xlg) {
+                    font-size: 52px;
+                }
+            }
+        }
+
+        .main-sec {
+            .sec-item {
+                @include card-adjustable.card-adjustable-all-features();
+            }
+        }
+    }
+}

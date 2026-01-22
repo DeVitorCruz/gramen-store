@@ -1,0 +1,110 @@
+@mixin display-justified($justify-content: space-between) {
+    justify-content: $justify-content;
+}
+
+@mixin header-top-notice(
+        $margin-bottom: 0,
+        $font-weight: 500,
+        $font-size: 14px,
+    ) {
+    margin-bottom: $margin-bottom;
+    font-weight: $font-weight;
+    font-size: $font-size;
+}
+
+@mixin nav-search-content() {
+    outline: none;
+    height: 38px;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    margin-right: -14px;
+}
+
+@mixin calling-box(
+    $display: inline-block,
+    $font-weight: 600,
+    $text-transform: uppercase,
+    $color: #b18b5e,
+    $background-color: rgba(177, 139, 94, 0.15),
+    $padding: 4px 15px,
+    $margin-bottom: 20px,
+) { 
+    display: $display;
+    font-weight: $font-weight;
+    text-transform: $text-transform;
+    color: $color;
+    background-color: $background-color;
+    padding: $padding;
+    margin-bottom: $margin-bottom;
+}
+
+@mixin g-title-static(
+    $font-size: 36px,
+    $font-weight: 600,
+    $line-height: 1.1,
+    $margin-bottom: 20px,
+    ) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    margin-bottom: $margin-bottom;
+}
+
+@mixin g-text-static(
+    $max-width: 500px,
+    $margin-bottom: 30px,
+    $font-size: 16px,
+    $line-height: 26px,
+    $color: #555555) {
+    max-width: $max-width;
+    margin-bottom: $margin-bottom;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+}
+
+@mixin g-button-static(
+    $font-size: 16px,
+    $font-weight: 500,
+    $color: #fff,
+    $height: 60px,
+    $text-transform: uppercase,
+    $align-items: center,
+    $justify-content: center,
+    $padding: 0 30px,
+    $z-index: 1,
+    $overflow: hidden,
+    $display: inline-flex,
+    $gap: 5px,
+    $background-color: #b18b5e,
+    $border: solid 1px #b18b5e,
+    $transition: all .3s ease-in-out,
+    $cursor: pointer,
+) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+    height: $height;
+    text-transform: $text-transform;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    padding: $padding;
+    z-index: $z-index;
+    overflow: $overflow;
+    display: $display;
+    gap: $gap;
+    background-color: $background-color;
+    border: $border;
+    transition: $transition;
+    cursor: $cursor;
+}
+
+@mixin bg-adjusting-size(
+    $background-position: center,
+    $background-repeat: no-repeat,
+    $background-size: cover) {
+    background-position: $background-position;
+    background-repeat: $background-repeat;
+    background-size: $background-size;
+}

@@ -1,0 +1,10 @@
+@use '@angular/material' as mat;
+@use '../styles-collections/themes/themes' as themes;
+
+@mixin costumer-material($theme: 'furniture') {
+    @include themes.all-themes($theme);
+}
+
+@mixin mat-core-applied() {
+    @include mat.core();
+}

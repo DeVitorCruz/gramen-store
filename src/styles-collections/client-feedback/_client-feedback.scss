@@ -1,0 +1,91 @@
+@use '../mixin-2' as mixin2;
+@use '../mixin-1' as mixin1;
+@use '../breakpoints' as breakpoints;
+@use '@angular/material' as mat;
+
+@mixin client-feedback-all-features() {
+    .client-feed-sec {
+        @include mixin2.bg-img-adjustment();
+        
+        &__title {
+            .up-title {
+                @include mixin1.calling-box($display: inline-block, $font-weight: 600, $text-transform: uppercase, $color: #fff, $background-color: rgba(255, 255, 255, 0.15), $padding: 2px 15px, $margin-bottom: 10px,);
+            }
+
+            .title {
+                @include mixin1.g-title-static($font-size: 32px, $font-weight: 600, $line-height: 1.3, $margin-bottom: 0px,);
+                margin-top: 0px;
+                color: #fff;
+
+                @include breakpoints.respond(2sm) {
+                    font-size: 36px;
+                }
+
+                @include breakpoints.respond(sm) {
+                    font-size: 40px;
+                }
+
+                @include breakpoints.respond(3xlg) {
+                    font-size: 45px;
+                }
+
+                @include breakpoints.respond(4xlg) {
+                    font-size: 52px;
+                }
+            }
+        }
+
+        .btn-content {
+            .client-btn {
+                border: solid .3px #b18b5e;
+                transition: all .3s ease-in-out;
+                width: 60px;
+                height: 60px;
+
+                @include mat.icon-overrides((
+                    color: #b18b5e,
+                ));
+
+                @include mat.fab-overrides((
+                    small-container-color: transparent,
+                ));
+
+                &:hover {
+                    @include mat.icon-overrides((
+                        color: #fff,
+                    ));
+
+                    @include mat.fab-overrides((
+                        small-container-color: #b18b5e,
+                    ));
+                }
+            }
+        }
+
+        .client-box-content {
+            background-color: #fff;
+
+            .title-head {
+                .ft-info {
+                    .rate-content {
+                        .rate-icon {
+                            color: #e8c54a;
+                        }
+                    }
+
+                    .sub-title {
+                        color: #555555;
+                    }
+                }
+
+                .quote-icon-content {
+                    color: #b18b5e;
+                }
+            }
+
+            .comment-text {
+                color: #555555;
+            }
+        }
+    }
+}
