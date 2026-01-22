@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+@use '_mixin-1' as mixin1;
+
+.nav-content {
+    &__item {
+        text-transform: capitalize;
+    }
+}
+
+.nav-search-content {
+    &__input {
+        @include mixin1.nav-search-content();
+    }
+}
+
+

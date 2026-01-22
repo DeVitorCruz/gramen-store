@@ -1,0 +1,21 @@
+<ng-container *ngFor="let rate_element of RATING_ELEMENTS()">
+    <div class="rating-dot" [ngClass]="`rating-dot__${rate_element.id}`">
+        <div
+            class="rating-dot__large flex justify-center items-center w-[64px] h-[64px] rounded-full cursor-pointer opacity-[.6]">
+            <fa-icon class="item-circle" [icon]="['fas', 'circle']" size="1x"></fa-icon>
+        </div>
+        <ul class="box-text absolute p-[30px] w-[250px] opacity-[1]" [ngClass]="rate_element.boxOpen? 'block' : 'hidden'">
+            <li>
+                <h6 class="title mt-[0px]">{{ rate_element.title }}</h6>
+            </li>
+            <li>
+                <ng-container *ngFor="let icon of rate_element.rate">
+                    <mat-icon class="rate-icon" aria-hidden="false" aria-label="Star icon" [fontIcon]="icon? 'star' : 'star_border'"></mat-icon>
+                </ng-container>
+            </li>
+            <li>
+                <span class="price">{{ rate_element.price }}</span>
+            </li>
+        </ul>
+    </div>
+</ng-container>

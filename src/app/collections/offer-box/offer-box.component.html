@@ -1,0 +1,15 @@
+<section class="main-offer pb-[100px]">
+    <div class="container pr-[15px] pl-[15px] mr-[auto] ml-[auto]">
+        <div class="lg:flex">
+            <ng-container *ngFor="let info_box_item of INFO_BOX_ITEMS()">
+                <a href="#" class="contents">
+                    <div class="pr-[15px] pl-[15px] mt-[15px] lg:flex[0_0_auto] lg:w-[50%] w-[100%]">
+                        <div class="main-offer__img-content pr-[40px] pl-[40px] pt-[70px] pb-[70px]" [style]="`background-image: url('${info_box_item.imageUrl}');`">
+                            <app-info-box [DATA]="info_box_item"></app-info-box>
+                        </div>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
+    </div>
+</section>

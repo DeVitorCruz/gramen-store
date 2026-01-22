@@ -1,0 +1,50 @@
+<div class="px-10">
+    <div class="grid grid-cols-[auto_auto] py-5">
+        <div class="flex max-[992px]:justify-between justify-around">
+            <div class="logo">
+                <a href="#">
+                    <img src="assets/logo/logo(2).svg" alt="logo not found" srcset="">
+                </a>
+            </div>
+            <div class="nav-content max-[992px]:hidden">
+                <ng-container *ngFor="let wrappMenuElement of WRAPP_MENU_ELEMENTS()">
+                    @if (wrappMenuElement.subItems) {
+                        <button mat-button [matMenuTriggerFor]="topItemMenu" class="nav-content__item nav-item">
+                            {{ wrappMenuElement.title }}
+                        </button>
+                        <mat-menu #topItemMenu="matMenu" class="nav-menu-content">
+                            <ng-container *ngFor="let item of wrappMenuElement.subItems">
+                                <button mat-menu-item style="text-transform: capitalize;" class="nav-menu-item">
+                                    {{ item.title }}
+                                </button>
+                            </ng-container>
+                        </mat-menu>
+                    } @else {
+                        <button mat-button class="nav-content__item nav-item">
+                            {{ wrappMenuElement.title }}
+                        </button>
+                    }
+                </ng-container>
+            </div>
+        </div>
+        <div class="flex justify-end">
+            <div class="nav-search-content max-[1400px]:hidden">
+                <input type="search" class="nav-search-content__input px-3 text-base" placeholder="Search...">
+                <button mat-raised-button class="nav-item-raised">
+                    <mat-icon aria-hidden="false" aria-label="search" fontIcon="search"></mat-icon>
+                </button>
+            </div>
+            <div class="nav-rest-content">
+                <button mat-button matBadge="3" [matBadgeHidden]="hidden" class="nav-rest-content__item nav-item">
+                    <mat-icon aria-hidden="false" aria-label="favorite" fontIcon="favorite"></mat-icon>
+                </button>
+                <button mat-button matBadge="12" [matBadgeHidden]="hidden" class="nav-rest-content__item nav-item">
+                    <mat-icon aria-hidden="false" aria-label="Add Shopping Cart" fontIcon="add_shopping_cart"></mat-icon>
+                </button>
+                <button mat-button class="nav-rest-content__item nav-item" (click)="toggleMenu()">
+                    <mat-icon aria-hidden="false" aria-label="menu" fontIcon="menu"></mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

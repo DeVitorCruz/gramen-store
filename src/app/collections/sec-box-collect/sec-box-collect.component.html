@@ -1,0 +1,17 @@
+<section class="box-collection-block py-[80px] lg:py-[100px] xl:py-[120px]">
+    <div class="container mx-[auto] px-[15px]">
+        <div class="header-sec flex justify-center mb-[55px] text-center">
+            <div class="header-sec__content">
+                <span class="header-sec__up-title">{{ SEC_BOX_INFO().upTitle }}</span>
+                <h2 class="header-sec__title">{{ SEC_BOX_INFO().title }}</h2>
+            </div>
+        </div>
+        <div class="main-sec grid lg:grid-cols-2 grid-cols-1">
+            <ng-container *ngFor="let box_item of SEC_BOX_INFO().boxItems">
+                <div class="sec-item px-[15px] mt-[30px]">
+                    <ng-container *ngComponentOutlet="ITEM_COMPONENT(); inputs: { DATA: box_item }"></ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

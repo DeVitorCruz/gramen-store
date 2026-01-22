@@ -1,0 +1,53 @@
+<div class="max-[575px]:hidden">
+    <mat-toolbar class="info-bar justify-between">
+        <div class="info-bar__btn-content">
+            <button mat-button class="info-bar-btn-item">
+                <mat-icon aria-hidden="false" aria-label="Phone" fontIcon="phone_in_talk"></mat-icon>
+                {{ INFO_BAR_FEATURES().telephoneNumber }}
+            </button>
+        </div>
+        <div class="max-[992px]:hidden">
+            <p>{{ INFO_BAR_FEATURES().beforeOffer }}<span>{{ INFO_BAR_FEATURES().offer }}</span>{{ INFO_BAR_FEATURES().afterOffer }}</p>
+        </div>
+        <div class="info-bar__menu">
+            <ng-container *ngIf="!AUTH_SERVICE.isAuthenticated(); else loggedInMenu">
+                <button mat-button [matMenuTriggerFor]="authItemMenu" class="info-bar-item">
+                    My Account
+                    <mat-icon aria-hidden="false" aria-label="Arrow" fontIcon="keyboard_arrow_down"></mat-icon>
+                </button>
+                <mat-menu #authItemMenu="matMenu" class="info-bar__menu-content">
+                    <button mat-menu-item routerLink="/login" class="info-bar-menu-item">Login</button>
+                    <button mat-menu-item routerLink="/register" class="info-bar-menu-item">Register</button>
+                </mat-menu>
+            </ng-container>
+            <ng-template #loggedInMenu>
+                <ng-container *ngFor="let topMenuElement of INFO_BAR_FEATURES().menuItems">
+                    <button mat-button [matMenuTriggerFor]="topItemMenu" class="info-bar-item">
+                        {{ topMenuElement.title }}
+                        <mat-icon aria-hidden="false" aria-label="Arrow" fontIcon="keyboard_arrow_down"></mat-icon>
+                    </button>
+                    <mat-menu #topItemMenu="matMenu" class="info-bar__menu-content">
+                        <ng-container *ngFor="let item of topMenuElement.subItems">
+                            <button *ngIf="!item.event; else eventBtn"  mat-menu-item [style]="`text-transform: ${topMenuElement.id === 1? 'uppercase': 'capitalize'};`" class="info-bar-menu-item">{{ item.title }}</button>
+                            <ng-template #eventBtn>
+                                <ng-container *ngIf="item.event?.clickEvent && item.title === 'logout'; else costumeClickable">
+                                    <button mat-menu-item
+                                        [style]="`text-transform: ${topMenuElement.id === 1? 'uppercase': 'capitalize'};`" class="info-bar-menu-item"
+                                        (click)="logout()">
+                                        {{ item.title }}
+                                    </button>
+                                </ng-container>
+                                <ng-template #costumeClickable>
+                                    <button mat-menu-item [style]="`text-transform: ${topMenuElement.id === 1? 'uppercase': 'capitalize'};`"
+                                        class="info-bar-menu-item">
+                                        {{ item.title }}
+                                    </button>
+                                </ng-template>
+                            </ng-template>
+                        </ng-container>
+                    </mat-menu>
+                </ng-container>
+            </ng-template>
+        </div>
+    </mat-toolbar>
+</div>

@@ -1,0 +1,21 @@
+<section [ngClass]="[EXTRA_CLASSES()]">
+    <div class="container px-[15px] mx-[auto]">
+        <div [ngClass]="[COLUMN_DEFINITION()]">
+            <ng-container *ngFor="let sec_block_item of SEC_BLOCK_ITEMS()">
+                <div [ngClass]="[EXTRA_CLASSES() + '__item']">
+                    <div 
+                        class="img-sec" 
+                        [style]="`
+                            background-image: url('${sec_block_item.imageUrl}'); 
+                            background-color: ${sec_block_item.bgColor? sec_block_item.bgColor :'#fff'}`">
+                        <ng-container 
+                            *ngComponentOutlet="ITEM_COMPONENT(); inputs: mergedInputs({ 
+                                DATA: sec_block_item, 
+                            })">
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>
