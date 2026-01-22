@@ -1,0 +1,13 @@
+<section class="icon-row-block">
+    <div class="container px-[15px] mx-[auto]">
+        <div class="icons-container" [ngClass]="[COLUMN_DEFINITION()]">
+            <ng-container *ngFor="let item_item of ICONS_ITEMS()">
+                <div class="icons-container__item">
+                    <ng-container *ngComponentOutlet="INPUT_COMPONENT(); inputs: mergedInputs({
+                        DATA: item_item,
+                    })"></ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

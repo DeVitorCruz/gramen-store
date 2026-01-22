@@ -1,0 +1,35 @@
+<div class="main-info-box">
+    <div class="info-box">
+        <span *ngIf="DATA().upTitle" class="info-box__calling">{{ DATA().upTitle }}</span>
+        <h2 [innerHTML]="DATA().title | breakLastWord:MODE():OPTION()"  class="info-box__title"></h2>
+        <p *ngIf="DATA().text" class="info-box__text">
+            {{ DATA().text }}
+        </p>
+        <app-countdown
+            *ngIf="DATA().hasCountDown"
+            [LEFT_TIME]="FULL_TIME_COUNT_DOWN()"></app-countdown>
+        <div class="info-box__btn-content flex flex-wrap items-center gap-[25px_20px]">
+            <ng-container *ngFor="let btnName of DATA().btnNames">
+                <button *ngIf="!btnName.routerLink; else routerBtn"  class="btn-banner">
+                    {{ btnName.label }}
+                    <mat-icon aria-hidden="false" aria-label="keyboard arrow right icon" fontIcon="keyboard_arrow_right"></mat-icon>
+                </button>
+
+                <ng-template #routerBtn>
+                    <button class="btn-banner" [routerLink]="btnName.routerLink">
+                        {{ btnName.label }}
+                        <mat-icon aria-hidden="false" aria-label="keyboard arrow right icon" fontIcon="keyboard_arrow_right"></mat-icon>
+                    </button>
+                </ng-template>
+            </ng-container>
+
+        </div>
+        <div *ngIf="DATA().itemContent" class="info-box__icon-content flex items-center gap-[20px]">
+            <ng-container *ngFor="let item of DATA().itemContent">
+                <a class="py-[14px] px-[20px] bg-black transition-all duration-[.3s] ease-in-out hover:-translate-y-[3px]" href="#">
+                    <img class="max-w-full h-auto object-cover align-middle" [src]="item.img" [alt]="item.alt">
+                </a>
+            </ng-container>
+        </div>
+    </div>
+</div>
