@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat; 
+@use 'styles/tailwind';
+@use 'styles/material' as styledMaterial;
+
+@include styledMaterial.mat-core-applied();
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {  
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+
+    input[type=search]::-webkit-search-decoration,
+    input[type=search]::-webkit-search-cancel-button,
+    input[type=search]::-webkit-search-results-button,
+    input[type=search]::-webkit-search-results-decoration {
+        display: none;
+    }
+}
+
+.furniture-theme {
+    @include styledMaterial.costumer-material('furniture');
+}
