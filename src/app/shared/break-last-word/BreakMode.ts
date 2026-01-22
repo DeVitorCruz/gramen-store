@@ -1,0 +1,1 @@
+export type BreakMode = 'last' | 'word' | 'length';

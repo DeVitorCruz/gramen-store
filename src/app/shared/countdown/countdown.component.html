@@ -1,0 +1,12 @@
+<div class="countdown-wrapper">
+    <div class="countdown-wrapper__timer-sec">
+        <ul class="flex flex-wrap justify-center gap-[20px]">
+            <ng-container *ngFor="let formatted of FORMATTED_REMAINING()">
+                <li class="timer-item flex flex-col uppercase px-[10px] pt-[20px] pb-[5px] w-[85px] text-[14px] text-center" style="background-color: rgba(255, 255, 255, .3)">
+                    <span class="number-sec relative text-[32px] font-bold mb-[15px]">{{ formatted.time }}</span>
+                    <span class="text-sec">{{ formatted.unity }}</span>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</div>
