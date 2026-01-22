@@ -1,0 +1,31 @@
+<section class="banner" [style]="`background-image: url(${bgPicuture}); background-color: ${colorLayer};`">
+    <div class="banner-content">
+        <div class="swiper banner-swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" *ngFor="let slide of BANNERS()">
+                    <div class="swiper-layer-content pt-[80px] lg:pt-[0px]">
+                        <div class="container px-[15px] flex flex-col mx-auto lg:flex-row items-center justify-center">
+                            <div class="banner-info-box flex flex-col lg:items-center items-baseline justify-center w-full lg:w-1/2 z-10 lg:bg-transparent bg-opacity-50 lg:bg-opacity-0 pr-[15px] pl-[15px] mt-[15px]">
+                                <app-info-box 
+                                    [DATA]="slide.infoBoxItem"
+                                    [MODE]="'length'"
+                                    ></app-info-box>
+                            </div>
+                            <div class="flex flex-col items-center lg:items-start justify-center w-full lg:w-1/2 z-10 lg:bg-transparent bg-opacity-50 lg:bg-opacity-0 h-full lg:relative inset-0 lg:inset-auto object-cover pr-[15px] pl-[15px] mt-[15px]">
+                                <div class="slide-pic lg:max-w-[none] max-w-[500px]">
+                                    <div class="img-content">
+                                        <img [src]="slide.imageUrl" [alt]="slide.infoBoxItem.text" class="banner-image">
+                                    </div>
+                                    <div class="cross-img-content hidden lg:block">
+                                        <img [src]="slide.crossImageUrl" [alt]="slide.infoBoxItem.text" class="cross-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-swiper-pagination"></div>
+        </div>
+    </div>
+</section>

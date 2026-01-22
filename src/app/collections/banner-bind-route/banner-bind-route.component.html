@@ -1,0 +1,15 @@
+<div class="page-block">
+    <section class="page-block__area py-[95px] z-[11] relative">
+        <div *ngIf="BANNER_BIND()?.imgUrl" class="img-content absolute h-full w-full top-[0] bottom-[0] bg-no-repeat bg-cover bg-center z-[-1]" [style]="`background-image: url('${BANNER_BIND()?.imgUrl}')`"></div>
+        <div class="container mx-[auto] px-[15px]">
+            <div class="flex flex-col justify-center text-center">
+                <h2 class="text-white text-[34px] sm:text-[42px] md:text-[50px] lg:text-[56px] xl:text-[64px] mb-[15px] leading-[1.3] font-semibold transition-all duration-[.3s] ease-in-out">{{ BANNER_BIND()?.title }}</h2>
+                <p *ngIf="BANNER_BIND()?.text" class="text-white capitalize">{{ BANNER_BIND()?.text }}</p>
+                <app-bread-crumb></app-bread-crumb>
+            </div>
+        </div>
+    </section>
+    <section class="page-block__content">
+        <router-outlet></router-outlet>
+    </section>
+</div>

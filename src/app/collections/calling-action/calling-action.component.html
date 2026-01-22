@@ -1,0 +1,17 @@
+<section class="theme-block">
+    <div class="main-sec xl:flex-row flex flex-col mx-[0] px-[0]">
+        <div class="xl:flex-[0_0_auto] xl:w-1/2">
+            <div class="theme-block__calling m-[30px] p-[25px]">
+                <app-info-box
+                 [DATA]="CALLING_ACTION_INFO()"
+                 [MODE]="'length'"
+                 [OPTION]="15"></app-info-box>
+            </div>
+        </div>
+        <div class="theme-block__detail relative xl:flex-[0_0_auto] xl:w-1/2">
+            <img class="w-full" src="assets/calling-action-img/rating-furniture.png" alt="Image-rating">
+            <app-rating-dot
+             [RATING_ELEMENTS]="RATING_ELEMENT()"></app-rating-dot>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,11 @@
+<nav class="flex justify-center item-center space-x-2 text-sm text-gray-600" aria-label="Breadcrumb">
+    <ng-container *ngFor="let crumb of BREAD_CRUMBS(); let last = last">
+        <a *ngIf="!last" [routerLink]="crumb.url" class="hover:text-green-700 transition-colors"> 
+            {{ crumb.label }}
+        </a>
+        <span *ngIf="last" class="font-semibold text-gray-900">
+            {{ crumb.label}}
+        </span>
+        <span *ngIf="!last" class="mx-1 text-gray-400">/</span>
+    </ng-container>
+</nav>
